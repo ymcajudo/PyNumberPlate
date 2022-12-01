@@ -2,12 +2,15 @@ import os
 from PIL import Image
 
 # 다운받을 이미지 url
-sampleurl = "https://raw.githubusercontent.com/ymcajudo/PyNumberPlate/master/1.jpg"
+#sampleurl = "https://raw.githubusercontent.com/ymcajudo/PyNumberPlate/master/1.jpg"
+sampleurl = "https://raw.githubusercontent.com/ymcajudo/PyNumberPlate/master/car_plate1.png"
+
+tmpimgname = "test.jpg"
 
 def imgdownload(imgurl):
     # curl 요청
     # curl "이미지 주소" > "저장 될 이미지 파일 이름(tmpimgname)" 
-    tmpimgname = "test.jpg"
+
     os.system("curl " + imgurl + " > {}".format(tmpimgname))
 
     """
@@ -20,6 +23,5 @@ def imgdownload(imgurl):
     
 if __name__ == "__main__":
     imgdownload(sampleurl)
-    #tmpimg = imgdownload(sampleurl)
-    #tmpimg.show()
-
+    tmpimg = Image.open("./"+tmpimgname)
+    tmpimg.show()
