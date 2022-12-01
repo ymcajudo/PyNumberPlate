@@ -321,6 +321,6 @@ if __name__ == "__main__":
     """
     while True:
         numplate()
-        time.sleep(1)
+        time.sleep(delaytime)
     """
     
