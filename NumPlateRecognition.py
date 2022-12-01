@@ -7,15 +7,18 @@ import ImgGet
 
 plt.style.use('dark_background')
 
+delaytime = 0.5                                     #the unit is a second
+
 #github 내 샘플 자동차번호판 이미지. 이미지에 따라 인식률의 차이가 큼
-url = "https://raw.githubusercontent.com/ymcajudo/PyNumberPlate/master/1.jpg"
+#imgurl = "https://raw.githubusercontent.com/ymcajudo/PyNumberPlate/master/1.jpg"
+imgurl = "https://raw.githubusercontent.com/ymcajudo/PyNumberPlate/master/car_plate1.png"
 
 def numplate(): 
     # 인식할 차량 번호판 선택
-    
-    #img_ori = cv2.imread('1.jpg')              #본 python 스크립트를 실행하는 폴더에 파일이 있는 경우
+
+    #img_ori = cv2.imread('1.jpg')                  #본 python 스크립트를 실행하는 폴더에 파일이 있는 경우
         
-    webimg = ImgGet.imgdownload(url)            #Web에서 img 받을 때
+    webimg = ImgGet.imgdownload(imgurl)             #Web에서 img 받을 때
     img_ori = cv2.imread(webimg)
     
     #img_path = 'D:/03.SW development/01.Python/01.Automatic Number Plate Recognition/1.jpg'    #local에 저장된 image의 path를 직접 지정
@@ -311,7 +314,7 @@ if __name__ == "__main__":
     while True:
         for i in range(0,5):            #exit after five(5) seconds
             numplate()
-            time.sleep(1)               #time delay for one(1) second
+            time.sleep(delaytime)               #time delay
         break
     """
 
